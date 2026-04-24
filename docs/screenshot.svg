@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0b0d"/>
+      <stop offset="100%" stop-color="#15181f"/>
+    </linearGradient>
+    <linearGradient id="glowRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff2d2d" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ff2d2d" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1218"/>
+      <stop offset="70%" stop-color="#161c25"/>
+      <stop offset="100%" stop-color="#1f2733"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1f232c" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#grid)" opacity="0.4"/>
+  <rect width="1280" height="640" fill="url(#glowRed)" opacity="0.6"/>
+
+  <!-- Header bar -->
+  <g transform="translate(80, 60)">
+    <rect x="0" y="0" width="44" height="44" fill="#ff2d2d"/>
+    <text x="22" y="32" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="700" fill="#fff">S</text>
+    <text x="60" y="22" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700" fill="#f4f5f7">Skijump Telemetry</text>
+    <text x="60" y="40" font-family="JetBrains Mono, monospace" font-size="11" fill="#70757f" letter-spacing="2">FLIGHT ANALYZER // MOTION SENSORS</text>
+  </g>
+
+  <!-- Scene frame -->
+  <g transform="translate(80, 140)">
+    <rect width="760" height="360" fill="url(#sky)" stroke="#2a2f3a" stroke-width="1"/>
+
+    <!-- Hill / ground -->
+    <path d="M 0 340 L 760 300 L 760 360 L 0 360 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)"/>
+
+    <!-- Grid lines -->
+    <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+      <line x1="0" y1="60" x2="760" y2="60"/>
+      <line x1="0" y1="140" x2="760" y2="140"/>
+      <line x1="0" y1="220" x2="760" y2="220"/>
+      <line x1="150" y1="20" x2="150" y2="340"/>
+      <line x1="300" y1="20" x2="300" y2="340"/>
+      <line x1="450" y1="20" x2="450" y2="340"/>
+      <line x1="600" y1="20" x2="600" y2="340"/>
+    </g>
+
+    <!-- Flight path (faint, full) -->
+    <path d="M 40 230 Q 180 120 360 160 T 720 330"
+          fill="none" stroke="#ff2d2d" stroke-width="2" opacity="0.35"/>
+
+    <!-- Flown part (bright) -->
+    <path d="M 40 230 Q 140 150 240 150 T 420 180"
+          fill="none" stroke="#ff2d2d" stroke-width="2.5"/>
+
+    <!-- Avatar -->
+    <g transform="translate(420, 180) rotate(-8)">
+      <!-- Shadow on ground -->
+      <ellipse cx="0" cy="145" rx="50" ry="4" fill="rgba(0,0,0,0.35)" transform="rotate(8)"/>
+
+      <!-- Left ski -->
+      <g transform="rotate(-9)">
+        <rect x="-18" y="-2" width="70" height="3.5" rx="2" fill="#e2e8f0"/>
+        <rect x="46" y="-2" width="6" height="3.5" fill="#ff2d2d"/>
+      </g>
+      <!-- Right ski -->
+      <g transform="rotate(9)">
+        <rect x="-18" y="-2" width="70" height="3.5" rx="2" fill="#e2e8f0"/>
+        <rect x="46" y="-2" width="6" height="3.5" fill="#ff2d2d"/>
+      </g>
+      <!-- Body -->
+      <ellipse cx="-4" cy="0" rx="18" ry="7" fill="#1a1f2b" stroke="#ff2d2d" stroke-width="1.5"/>
+      <line x1="11" y1="0" x2="18" y2="0" stroke="#ff2d2d" stroke-width="2"/>
+      <circle cx="18" cy="0" r="6" fill="#ff2d2d"/>
+      <line x1="-12" y1="-5" x2="8" y2="-11" stroke="#1a1f2b" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-12" y1="5" x2="8" y2="11" stroke="#1a1f2b" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Velocity arrow -->
+    <line x1="420" y1="180" x2="470" y2="215" stroke="#fff" stroke-width="1.5" opacity="0.55" marker-end="url(#va)"/>
+    <defs>
+      <marker id="va" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 Z" fill="#fff" opacity="0.55"/>
+      </marker>
+    </defs>
+
+    <!-- Scene label top-right -->
+    <text x="740" y="30" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#484c55" letter-spacing="2">DISTANZ</text>
+    <text x="740" y="58" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="22" font-weight="500" fill="#f4f5f7">128.4 m</text>
+
+    <!-- Scene label top-left -->
+    <text x="20" y="30" font-family="JetBrains Mono, monospace" font-size="10" fill="#70757f" letter-spacing="2">FLIGHT INSPECTOR</text>
+  </g>
+
+  <!-- Right panel - data -->
+  <g transform="translate(880, 140)">
+    <rect width="320" height="360" fill="#111318" stroke="#2a2f3a" stroke-width="1"/>
+
+    <!-- Data block 1 -->
+    <g transform="translate(20, 20)">
+      <text font-family="JetBrains Mono, monospace" font-size="9" fill="#484c55" letter-spacing="2">GESCHWINDIGKEIT</text>
+      <g transform="translate(0, 18)">
+        <text font-family="JetBrains Mono, monospace" font-size="9" fill="#70757f" letter-spacing="1">RESULTIEREND</text>
+        <text y="20" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" fill="#f4f5f7">113.2<tspan font-size="10" fill="#70757f"> km/h</tspan></text>
+      </g>
+      <g transform="translate(140, 18)">
+        <text font-family="JetBrains Mono, monospace" font-size="9" fill="#70757f" letter-spacing="1">HORIZONTAL</text>
+        <text y="20" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" fill="#f4f5f7">93.5<tspan font-size="10" fill="#70757f"> km/h</tspan></text>
+      </g>
+    </g>
+
+    <line x1="0" y1="92" x2="320" y2="92" stroke="#1f232c"/>
+
+    <!-- Data block 2 -->
+    <g transform="translate(20, 108)">
+      <text font-family="JetBrains Mono, monospace" font-size="9" fill="#484c55" letter-spacing="2">ANSTELLWINKEL (AOA)</text>
+      <g transform="translate(0, 18)">
+        <text font-family="JetBrains Mono, monospace" font-size="9" fill="#70757f" letter-spacing="1">LINKS</text>
+        <text y="20" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" fill="#f4f5f7">0.1<tspan font-size="10" fill="#70757f"> °</tspan></text>
+      </g>
+      <g transform="translate(140, 18)">
+        <text font-family="JetBrains Mono, monospace" font-size="9" fill="#70757f" letter-spacing="1">RECHTS</text>
+        <text y="20" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" fill="#f4f5f7">-2.8<tspan font-size="10" fill="#70757f"> °</tspan></text>
+      </g>
+      <!-- Asym bar -->
+      <g transform="translate(0, 52)">
+        <text font-family="JetBrains Mono, monospace" font-size="9" fill="#70757f">L-R</text>
+        <rect x="36" y="-4" width="200" height="4" fill="#22262f"/>
+        <rect x="36" y="-4" width="58" height="4" fill="#ff2d2d"/>
+        <text x="280" y="2" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#f4f5f7">Δ 2.9°</text>
+      </g>
+    </g>
+
+    <line x1="0" y1="210" x2="320" y2="210" stroke="#1f232c"/>
+
+    <!-- Data block 3 -->
+    <g transform="translate(20, 226)">
+      <text font-family="JetBrains Mono, monospace" font-size="9" fill="#484c55" letter-spacing="2">ROLL-WINKEL</text>
+      <g transform="translate(0, 18)">
+        <text font-family="JetBrains Mono, monospace" font-size="9" fill="#70757f">LINKS</text>
+        <text y="20" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" fill="#f4f5f7">36.9<tspan font-size="10" fill="#70757f"> °</tspan></text>
+      </g>
+      <g transform="translate(140, 18)">
+        <text font-family="JetBrains Mono, monospace" font-size="9" fill="#70757f">RECHTS</text>
+        <text y="20" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" fill="#f4f5f7">-31.2<tspan font-size="10" fill="#70757f"> °</tspan></text>
+      </g>
+    </g>
+
+    <line x1="0" y1="326" x2="320" y2="326" stroke="#1f232c"/>
+
+    <!-- Data block 4 -->
+    <g transform="translate(20, 340)">
+      <text font-family="JetBrains Mono, monospace" font-size="9" fill="#484c55" letter-spacing="2">SKI-STELLUNG · OPENING 19.1°</text>
+    </g>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="640" y="570" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" fill="#b8bcc6">
+    FIS Ski Jumping World Cup Telemetry Analysis
+  </text>
+  <text x="640" y="595" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#70757f" letter-spacing="3">
+    DRAG · VISUALIZE · COMPARE
+  </text>
+</svg>
